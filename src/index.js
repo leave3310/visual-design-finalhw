@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
+import { HashRouter, Switch, Route } from 'react-router-dom'
 import './index.css';
-import App from './App';
+import Header from './components/Layouts/Header'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <HashRouter>
+    <Header/>
+
+  </HashRouter>
+  ,
   document.getElementById('root')
 );
 
