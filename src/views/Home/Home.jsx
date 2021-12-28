@@ -1,12 +1,8 @@
 import React from "react";
-import Header from '../../components/Layouts/Header'
-
 
 const Home = () => {
     return (
-        <Header>
-            
-        </Header>
+        <div>123</div>
     )
 }
 
