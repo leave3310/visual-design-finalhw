@@ -1,9 +1,11 @@
 import React from 'react'
 import { Container, Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
+
 const Header = () => {
     return (
-        <Navbar fixed="top" collapseOnSelect expand="lg">
+        <Navbar className="bg-warning" collapseOnSelect expand="lg">
             <Container>
                 <Navbar.Brand href="#home">原神</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -11,16 +13,12 @@ const Header = () => {
                     <Nav className="me-auto">
                     </Nav>
                     <Nav className='text-center'>
-                        <Link to="/" className='text-decoration-none'>
-                            <Nav.Link>
-                                首頁
-                            </Nav.Link>
-                        </Link>
-                        <Link to="/character" className='text-decoration-none'>
-                            <Nav.Link>
-                                角色
-                            </Nav.Link>
-                        </Link>
+                        <Nav.Link as={Link} to="/" >
+                            首頁
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/list" >
+                            角色
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

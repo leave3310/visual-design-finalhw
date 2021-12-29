@@ -1,7 +1,14 @@
 import React from 'react'
 
-const List = () => {
+import Characters from '../../components/Characters'
 
+
+const List = () => {
+    return (
+        <div>
+            <Characters />
+        </div>
+    )
 }
 
 export default List
