@@ -7,9 +7,7 @@ import Home from './views/Home'
 import List from './views/List/List';
 import Footer from './components/Layouts/Footer'
 
-function Test() {
-  return <h2>Home</h2>
-}
+ 
 ReactDOM.render(
   <HashRouter>
     <Header />

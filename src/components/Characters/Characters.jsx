@@ -1,7 +1,8 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, {useState} from "react";
+import styled from 'styled-components'
+import { Container, ButtonGroup, Button } from "react-bootstrap";
 
-const charactersList = [{
+const allcharacters = [{
     engName: 'albedo',
     chinName: '阿貝多',
     des: `阿貝多，又稱為「白堊之子」，是蒙德國岩元素的角色。
@@ -237,7 +238,7 @@ const charactersList = [{
     engName: 'traveler',
     chinName: '旅行者',
     des: `從世界之外漂流而來的旅行者，被神帶走血親，自此踏上尋找七神之路。`,
-    Element: '無、風、岩、雷',
+    Element: '所有屬性',
     weapon: '單手劍'
 },
 {
@@ -265,7 +266,7 @@ const charactersList = [{
     engName: 'xingqui',
     chinName: '行秋',
     des: `經常能在書攤看到的少年人。手執長劍，胸中常懷俠義之心。`,
-    Element: '風',
+    Element: '水',
     weapon: '單手劍'
 },
 {
@@ -299,15 +300,51 @@ const charactersList = [{
 
 ]
 
+
+const CharaList = styled.li`
+    list-style: none;
+`
+
 const Characters = () => {
+    const [character, setCharacter] = useState(allcharacters)
+    const filterCharacters = (element, setFunction)=>{
+        if(element === '全部'){
+            setCharacter(allcharacters)    
+        }
+        else{
+            const tmpChara =  allcharacters.filter((character)=>{
+                return element === character.Element
+            })
+            setCharacter(tmpChara)
+        }
+    }
     return (
         <Container>
-
-            {
-                charactersList.map((element) => (
-                    <img src={require(`../../images/collection/${element.engName}.jpg`)}></img>
-                ))
-            }
+            <div className="fs-1 text-center">角色列表</div>
+            <section className="d-flex justify-content-center">
+                <ButtonGroup className="me-2" aria-label="First group">
+                    <Button variant="secondary" onClick={()=> filterCharacters("全部")}>全部</Button>
+                    <Button variant="secondary" onClick={()=> filterCharacters('水')}>水</Button>
+                    <Button variant="secondary" onClick={()=> filterCharacters('火')}>火</Button>
+                    <Button variant="secondary" onClick={()=> filterCharacters('風')}>風</Button>
+                    <Button variant="secondary" onClick={()=> filterCharacters('雷')}>雷</Button>
+                    <Button variant="secondary" onClick={()=> filterCharacters('冰')}>冰</Button>
+                    <Button variant="secondary" onClick={()=> filterCharacters('岩')}>岩</Button>
+                    <Button variant="secondary" onClick={()=> filterCharacters('所有屬性')}>旅行者</Button>
+                </ButtonGroup>
+            </section>
+            <br />
+            <ul className="d-flex flex-wrap justify-content-center">
+                {
+                    character.map((element) => (
+                        <CharaList key={element.chinName} className="mx-3">                            
+                            <img src={require(`images/head/${element.engName}.png`)} alt={element.chinName} width="150"></img>
+                            <div className="fs-5 text-center">{element.chinName}</div>
+                        </CharaList>
+                        
+                    ))
+                }
+            </ul>
         </Container>
 
     )
