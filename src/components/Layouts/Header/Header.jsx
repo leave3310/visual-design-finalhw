@@ -19,6 +19,9 @@ const Header = () => {
                         <Nav.Link as={Link} to="/list" >
                             角色
                         </Nav.Link>
+                        <Nav.Link as={Link} to="/introduction" >
+                            介紹
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

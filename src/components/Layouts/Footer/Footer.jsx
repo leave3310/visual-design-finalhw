@@ -10,15 +10,13 @@ const Footer = () => {
     return (
         <footer className="bg-dark text-white">
             <Container>
-                <FooterHeight>
-                    <section className="d-flex flex-md-row flex-column justify-content-between align-items-center">
-                        <div>
-                            present by Kylen Chen
-                        </div>
-                        <div>
-                            © Kylen Chen 2021
-                        </div>
-                    </section>
+                <FooterHeight className="d-flex flex-md-row flex-column justify-content-between align-items-center">
+                    <div>
+                        present by Kylen Chen
+                    </div>
+                    <div>
+                        © Kylen Chen 2021
+                    </div>
                 </FooterHeight>
             </Container>
         </footer>

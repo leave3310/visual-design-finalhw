@@ -5,9 +5,7 @@ import Characters from '../../components/Characters'
 
 const List = () => {
     return (
-        <div>
             <Characters />
-        </div>
     )
 }
 
